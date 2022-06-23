@@ -1,0 +1,19 @@
+{
+  "name": "dashboard-backend",
+  "version": "1.0.0",
+  "description": "An express framework based application for purpose of authentication, analytics data sending, CRUD operations on Image data",
+  "main": "index.js",
+  "repository": "https://github.com/tanyaohri/dashboard-backend",
+  "author": "tanya-ohri",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "fs": "^0.0.1-security",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.4.0",
+    "requests": "^0.3.0"
+  }
+}
