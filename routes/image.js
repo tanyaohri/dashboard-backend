@@ -1,4 +1,4 @@
-const upload  = require("./../controller/imageController"),
+const upload  = require("../controller/imageController"),
      express  = require("express"),
      router   = express.Router();
 

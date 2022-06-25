@@ -15,7 +15,8 @@ function authenticateToken(req, res, next){
         });
 }
 
-function getAuthToken(userObject){
+async function getAuthToken(userObject){
+    console.log(userObject)
     return jwt.sign(
         userObject,
         process.env.JWT_SECRET_ACCESS_TOKEN,

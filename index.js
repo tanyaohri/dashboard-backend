@@ -3,7 +3,8 @@ require("dotenv").config();
 
 const   express    = require('express'),
         mongoose   = require("mongoose"),
-        Grid     = require("gridfs-stream"),
+        Grid       = require("gridfs-stream"),
+        cors       = require("cors"),
         jwt        = require("jsonwebtoken"),
         port       = process.env.PORT || 8000;
         app        = express();
@@ -11,6 +12,7 @@ const   express    = require('express'),
 const { setMongooseConnection }  = require("./utils/connections");
       
 // Initial Set up
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 setMongooseConnection();
@@ -23,11 +25,15 @@ conn.once("open", () => {
 })
 
 // Routers
-const imageRouter = require("./routes/imgRoutes");
+const imageRouter = require("./routes/image");
+const authRouter = require("./routes/auth");
 
 app.use("/file", imageRouter);
+app.use("/api", authRouter);
 
 
+
+// Image get, delete routes
 app.get('/file/:filename', async(req, res) => {
     try{
         const file = await gridFileSystemObj.files.findOne({filename:req.params.filename});
