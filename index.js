@@ -27,9 +27,13 @@ conn.once("open", () => {
 // Routers
 const imageRouter = require("./routes/image");
 const authRouter = require("./routes/auth");
+const dataRouter = require("./routes/data");
+
+
 
 app.use("/file", imageRouter);
 app.use("/api", authRouter);
+app.use("/data", dataRouter)
 
 
 

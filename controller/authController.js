@@ -63,8 +63,6 @@ const store_user = async(req, res) => {
     })
 }
 
-
-
 const check_user=async(req, res)=>{
     does_user_exists(req.body).then(async (response) => {
         console.log(response, "response")
